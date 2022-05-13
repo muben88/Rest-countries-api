@@ -11,3 +11,104 @@ $white: hsl(0, 0%, 100%)
     box-sizing: border-box
     margin: 0
     padding: 0
+
+body 
+    font-family: 'Nunito Sans'
+    background-color: $bg-lt
+
+.header, .mode-switcher
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+.header
+    padding: 2rem 1rem
+    color: $txt-lt
+    background-color: $white
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px 1px, rgb(0 0 0 / 30%) 0px 0px 3px -1px
+    .title
+        font-size: 1.2rem
+        font-weight: 700
+    .mode-switcher
+        cursor: pointer
+        p
+            margin-left: 1rem
+
+.input-field
+    padding: 1rem
+    position: relative
+    top: 1rem
+    
+    input
+        width: 100%
+        padding: 1.2rem 0
+        border: none
+        border-radius: .5rem
+        box-shadow: 0px 0px 8px -6px $bg-dark-mode
+        outline: none
+        font-family: 'Nunito Sans'
+        text-indent: 20%
+        color: $lt-input
+    .search-icon
+        position: absolute
+        top: 50%
+        left: 3rem
+        transform: translateY(-50%)
+        color: $lt-input
+        font-size: 1.2rem
+        cursor: pointer
+    .search-icon:hover
+        font-size: 1.3rem
+        transition: .2s all ease-in
+
+        
+
+.region-filter
+    padding: 1rem
+    details
+        position: relative
+        cursor: pointer
+        width: 50%
+        background-color: $white
+        padding: 1.2rem
+        border-radius: .5rem
+        box-shadow: 0px 0px 8px -6px $bg-dark-mode
+
+    summary
+        display: block
+        position: relative
+        font-weight: 600
+    summary::after
+        content: ""
+        position: absolute
+        top: 0
+        right: 0
+        border-bottom: 1px solid
+        border-bottom-left-radius: 2px
+        border-left: 1px solid
+        display: inline-block
+        -webkit-transform: rotate(45deg) translate(150%)
+        transform: rotate(45deg) translate(150%)
+        -webkit-transform-origin: center center
+        transform-origin: center center
+        transition: all .3s ease-in-out
+        width: 0.4rem
+        height: 0.4rem
+
+    .region-list
+        position: absolute
+        top: 4.5rem
+        left: 0
+        padding: 1rem
+        font-weight: 600
+        list-style: none
+        background-color: $white
+        width: 100%
+        border-radius: .5rem
+        box-shadow: 0px 0px 8px -6px $bg-dark-mode
+        li
+            margin: .3rem 0
+        li:hover
+            color: #ffdddd
+            transition: .1s ease-in
+        
