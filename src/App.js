@@ -1,12 +1,16 @@
 import Header from "./components/Header";
 import InputField from "./components/InputField";
+import CountryCard from "./components/CountryCard";
 import "./sass/App.sass";
 
 function App() {
   return (
     <>
       <Header />
-      <InputField />
+      <div className="main-content">
+        <InputField />
+        <CountryCard />
+      </div>
     </>
   );
 }
