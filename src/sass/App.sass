@@ -109,6 +109,104 @@ body
         li
             margin: .3rem 0
         li:hover
-            color: #ffdddd
-            transition: .1s ease-in
-        
+            background-color: $lt-input
+            color: $white
+            padding-left: .5rem
+            border-radius: .2rem
+            transition: .2s ease-in
+    
+.card-container
+    padding: 3rem
+.card
+    background-color: $white
+    border-radius: .5rem
+    box-shadow: 0px 0px 14px -6px $bg-dark-mode
+    margin-bottom: 2rem
+    .country-flag
+        width: 100% 
+        height: 15rem
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            border-radius: .5rem .5rem 0 0
+    .country-info
+        padding: 1rem
+        h2
+            margin: 1rem 0
+        p
+            margin: .5rem 0 
+
+@media (min-width: 769px) and (max-width: 988px) 
+    
+    .main-content
+        padding: 2rem
+
+    .search-filter
+        display: flex
+        justify-content: space-between
+
+    .input-field
+        width: 30rem
+        padding: 0
+        .search-icon
+            top: 50%
+            left: 2rem
+        input
+            text-indent: 15%
+
+    .region-filter
+        padding: 0
+        width: 15rem
+        position: relative
+        top: 1rem
+        details
+            width: 100%
+        .region-list
+
+    .card-container
+        padding: 0
+        margin-top: 4rem
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        gap: 2rem
+    
+    .card
+        margin-bottom: 0
+
+@media (min-width: 989px)
+
+    .main-content
+        padding: 2rem
+
+    .search-filter
+        display: flex
+        justify-content: space-between
+
+    .input-field
+        width: 30rem
+        padding: 0
+        .search-icon
+            top: 50%
+            left: 2rem
+        input
+            text-indent: 15%
+
+    .region-filter
+        padding: 0
+        width: 15rem
+        position: relative
+        top: 1rem
+        details
+            width: 100%
+        .region-list
+
+    .card-container
+        padding: 0
+        margin-top: 4rem
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        gap: 2rem
+    
+    .card
+        margin-bottom: 0
