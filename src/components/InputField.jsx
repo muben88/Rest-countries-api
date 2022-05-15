@@ -1,11 +1,33 @@
+import { useContext, useState } from "react";
 import { BsSearch } from "react-icons/bs";
+import CountryDataContext from "../context/countryDataContext";
 
 function InputField() {
+  const [searchText, setSearchText] = useState("");
+
+  const { searchCountries } = useContext(CountryDataContext);
+
+  const changeHandler = (e) => {
+    setSearchText(e.target.value);
+  };
+
+  const submitHandler = (e) => {
+    if (searchText <= 0) {
+      alert("enter");
+    }
+    setSearchText("");
+  };
+
   return (
-    <>
+    <div className="search-filter">
       <div className="input-field">
-        <input type="text" placeholder="Search for a country..." />
-        <BsSearch className="search-icon" />
+        <input
+          type="text"
+          placeholder="Search for a country..."
+          onChange={changeHandler}
+          value={searchText}
+        />
+        <BsSearch className="search-icon" onClick={submitHandler} />
       </div>
       <div className="region-filter">
         <details>
@@ -19,7 +41,7 @@ function InputField() {
           </ul>
         </details>
       </div>
-    </>
+    </div>
   );
 }
 export default InputField;
