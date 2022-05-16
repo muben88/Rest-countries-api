@@ -4,6 +4,7 @@ const CountryDataContext = createContext();
 
 export const CountryDataProvider = ({ children }) => {
   const [info, setInfo] = useState({});
+  const [countryInfo, setCountryInfo] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchCountries = async () => {
@@ -39,13 +40,36 @@ export const CountryDataProvider = ({ children }) => {
       .catch((err) => console.log(err));
   };
 
+  const getCountryInfo = (country) => {
+    setIsLoading(true);
+
+    fetch(`https://restcountries.com/v2/name/${country}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setCountryInfo(data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setCountryInfo([]);
+        setIsLoading(false);
+      });
+  };
+
   useEffect(() => {
     fetchCountries();
   }, []);
 
   return (
     <CountryDataContext.Provider
-      value={{ info, isLoading, searchCountries, filterByRegion }}
+      value={{
+        info,
+        countryInfo,
+        isLoading,
+        searchCountries,
+        filterByRegion,
+        fetchCountries,
+        getCountryInfo,
+      }}
     >
       {children}
     </CountryDataContext.Provider>
