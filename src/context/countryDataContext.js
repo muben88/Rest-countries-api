@@ -28,12 +28,25 @@ export const CountryDataProvider = ({ children }) => {
       });
   };
 
+  const filterByRegion = (region) => {
+    setIsLoading(true);
+    fetch(`https://restcountries.com/v2/region/${region}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setInfo(data);
+        setIsLoading(false);
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     fetchCountries();
   }, []);
 
   return (
-    <CountryDataContext.Provider value={{ info, isLoading, searchCountries }}>
+    <CountryDataContext.Provider
+      value={{ info, isLoading, searchCountries, filterByRegion }}
+    >
       {children}
     </CountryDataContext.Provider>
   );
