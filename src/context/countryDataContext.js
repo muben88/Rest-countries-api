@@ -13,12 +13,19 @@ export const CountryDataProvider = ({ children }) => {
     setIsLoading(false);
   };
 
-  const searchCountries = async (query) => {
+  const searchCountries = (query) => {
     setIsLoading(true);
-    const res = await fetch(`https://restcountries.com/v2/name/${query}`);
-    const data = await res.json();
-    setInfo(data);
-    setIsLoading(false);
+
+    fetch(`https://restcountries.com/v2/name/${query}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setInfo(data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setInfo([]);
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
