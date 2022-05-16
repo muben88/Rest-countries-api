@@ -15,6 +15,7 @@ function InputField() {
     if (searchText <= 0) {
       alert("enter");
     }
+    searchCountries(searchText);
     setSearchText("");
   };
 
