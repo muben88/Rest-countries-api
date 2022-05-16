@@ -7,7 +7,7 @@ function CountryCard() {
     <div className="card-container">
       {isLoading ? (
         <p>Searching...</p>
-      ) : (
+      ) : info.length > 0 ? (
         info.map((item) => (
           <div className="card" key={item.numericCode}>
             <div className="country-flag">
@@ -27,6 +27,10 @@ function CountryCard() {
             </div>
           </div>
         ))
+      ) : (
+        <p className="error-msg">
+          Nothing found! Please enter a different country name
+        </p>
       )}
     </div>
   );
