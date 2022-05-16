@@ -5,7 +5,7 @@ import CountryDataContext from "../context/countryDataContext";
 function InputField() {
   const [searchText, setSearchText] = useState("");
 
-  const { searchCountries } = useContext(CountryDataContext);
+  const { searchCountries, filterByRegion } = useContext(CountryDataContext);
 
   const changeHandler = (e) => {
     setSearchText(e.target.value);
@@ -34,11 +34,11 @@ function InputField() {
         <details>
           <summary>Filter by Region</summary>
           <ul className="region-list">
-            <li value="Africa">Africa</li>
-            <li value="America">America</li>
-            <li value="Asia">Asia</li>
-            <li value="Europe">Europe</li>
-            <li value="Oceania">Oceania</li>
+            <li onClick={() => filterByRegion("africa")}>Africa</li>
+            <li onClick={() => filterByRegion("americas")}>Americas</li>
+            <li onClick={() => filterByRegion("asia")}>Asia</li>
+            <li onClick={() => filterByRegion("europe")}>Europe</li>
+            <li onClick={() => filterByRegion("oceania")}>Oceania</li>
           </ul>
         </details>
       </div>
