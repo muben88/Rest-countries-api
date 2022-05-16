@@ -1,17 +1,14 @@
-import Header from "./components/Header";
-import InputField from "./components/InputField";
-import CountryCard from "./components/CountryCard";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import CountryInfo from "./components/CountryInfo";
 import "./sass/App.sass";
 
 function App() {
   return (
-    <>
-      <Header />
-      <div className="main-content">
-        <InputField />
-        <CountryCard />
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/countryinfo" element={<CountryInfo />} />
+    </Routes>
   );
 }
 
