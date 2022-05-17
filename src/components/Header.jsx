@@ -2,24 +2,33 @@ import { useState } from "react";
 import { BsMoonFill, BsMoon } from "react-icons/bs";
 
 function Header() {
-  const [isDark, setIsDark] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
-  const modeSwitch = () => {
-    setIsDark(!isDark);
+  const onThemeSwitchChange = () => {
+    setIsChecked(!isChecked);
+    setTheme();
+  };
+
+  const setTheme = () => {
+    var dataThemeAttribute = "data-theme";
+    var body = document.body;
+    var newTheme =
+      body.getAttribute(dataThemeAttribute) === "dark" ? "light" : "dark";
+    body.setAttribute(dataThemeAttribute, newTheme);
   };
 
   return (
     <header className="header">
       <p className="title">Where in the world?</p>
 
-      {!isDark ? (
+      {!isChecked ? (
         <div className="mode-switcher">
-          <BsMoon onClick={modeSwitch} />
+          <BsMoonFill onClick={onThemeSwitchChange} />
           <p>Dark Mode</p>
         </div>
       ) : (
         <div className="mode-switcher">
-          <BsMoonFill onClick={modeSwitch} />
+          <BsMoon onClick={onThemeSwitchChange} />
           <p>Light Mode</p>
         </div>
       )}
