@@ -1,2 +1,25 @@
-body[data-theme="light"]
+$elm-dark-mode: hsl(209, 23%, 22%)
+$bg-dark-mode: hsl(207, 26%, 17%)
+$white: hsl(0, 0%, 100%)
     
+body[data-theme="dark"]
+    
+    main
+        background-color: $bg-dark-mode
+        color: $white
+        transition: .1s ease-in
+        min-height: 100vh
+
+    .header,
+    .input-field input,
+    .region-filter details,
+    .region-list, 
+    .card,
+    .button,
+    .border-countries div p
+        background-color: $elm-dark-mode
+        color: $white
+
+    .button,
+    .border-countries div p
+        border: 1px solid #242424
